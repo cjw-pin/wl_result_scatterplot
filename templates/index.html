@@ -1,0 +1,25 @@
+{% load static %}
+
+<html> 
+    <head> 
+    <title> Our App </title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    </head>
+    <body>
+        <nav>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}"> <span> Hello {{user.username}}! </span>Log out</a>
+                <a href="{% url 'password_change' %}"> Change password</a>
+
+            {% else %}
+                <a href="{% url 'register' %}"> Register</a>
+                <a href="{% url 'login' %}"> Log in</a>
+            {% endif %}
+        </nav>
+
+        <h1> HOME PAGE </h1>
+
+        <!-- <script src="{% static 'js/first_file.js' %}"> </script> --> 
+
+    </body>
+</html>
